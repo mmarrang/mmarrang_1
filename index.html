@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>특수작전부</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #080c12;
+    color: #e8edf4;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 72px;
+    background: rgba(8, 12, 18, 0.88);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    z-index: 1000;
+}
+
+.nav {
+    max-width: 1400px;
+    height: 100%;
+    margin: auto;
+    padding: 0 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: #6ea8ff;
+}
+
+.menu {
+    display: flex;
+    gap: 34px;
+}
+
+.menu a {
+    color: #8d98a8;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: 0.25s;
+}
+
+.menu a:hover {
+    color: white;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 75% 45%, rgba(46, 104, 177, 0.22), transparent 35%),
+        linear-gradient(90deg, #080c12 15%, rgba(8,12,18,0.75) 48%, rgba(8,12,18,0.15));
+}
+
+.hero-inner {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 120px 40px 80px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.hero-small {
+    color: #6ea8ff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(60px, 7vw, 105px);
+    line-height: 1;
+    letter-spacing: -5px;
+    margin-bottom: 28px;
+}
+
+.hero h1 span {
+    display: block;
+    color: #8f9aaa;
+    font-size: 0.32em;
+    letter-spacing: 8px;
+    margin-bottom: 18px;
+}
+
+.hero-description {
+    max-width: 560px;
+    color: #9ba5b3;
+    font-size: 15px;
+}
+
+.hero-buttons {
+    margin-top: 38px;
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 150px;
+    height: 48px;
+    padding: 0 25px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+    font-size: 13px;
+    letter-spacing: 1px;
+
+    transition: 0.25s;
+}
+
+.btn-primary {
+    background: #e9eef5;
+    color: #0b1017;
+}
+
+.btn-primary:hover {
+    background: white;
+    transform: translateY(-2px);
+}
+
+.btn-dark:hover {
+    background: rgba(255,255,255,0.07);
+}
+
+/* HERO CHARACTER */
+
+.hero-character {
+    height: 620px;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.character-frame {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(145deg, #17202c, #090d13);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.character-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.character-placeholder {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 100px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.06);
+}
+
+.character-info {
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+    right: 25px;
+
+    padding: 20px;
+
+    background: rgba(5,8,12,0.82);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.character-info small {
+    color: #6ea8ff;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.character-info h3 {
+    font-size: 23px;
+    margin-top: 4px;
+}
+
+.character-info p {
+    color: #929daa;
+    font-size: 12px;
+}
+
+/* =========================
+   COMMON SECTION
+========================= */
+
+section {
+    scroll-margin-top: 72px;
+}
+
+.section {
+    max-width: 1400px;
+    margin: auto;
+    padding: 130px 40px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 55px;
+}
+
+.section-number {
+    color: #50627a;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.section-title {
+    margin-top: 8px;
+    font-size: 38px;
+    letter-spacing: -1px;
+}
+
+.section-description {
+    max-width: 450px;
+    color: #788391;
+    font-size: 13px;
+}
+
+/* =========================
+   WORLD
+========================= */
+
+.world {
+    background: #0b1017;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.world-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 70px;
+}
+
+.world-text {
+    color: #a0a9b5;
+    font-size: 15px;
+}
+
+.world-text p {
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: #e9eef5;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.stat {
+    min-height: 150px;
+    padding: 25px;
+
+    border: 1px solid rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.015);
+}
+
+.stat-number {
+    display: block;
+    font-size: 38px;
+    font-weight: 700;
+}
+
+.stat-label {
+    color: #707b89;
+    font-size: 12px;
+}
+
+/* =========================
+   CHARACTERS
+========================= */
+
+.characters {
+    background: #080c12;
+}
+
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.card {
+    min-height: 310px;
+    padding: 30px;
+
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,0.07);
+    background: linear-gradient(145deg, #101720, #0b1017);
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(110,168,255,0.3);
+}
+
+.card-number {
+    color: #45576d;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.card-role {
+    color: #6ea8ff;
+    font-size: 11px;
+    margin-top: 55px;
+}
+
+.card h3 {
+    font-size: 26px;
+    margin-top: 5px;
+}
+
+.card-age {
+    color: #6f7a88;
+    font-size: 12px;
+}
+
+.card-ability {
+    margin-top: 25px;
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(255,255,255,0.06);
+
+    color: #b7c0cc;
+    font-size: 13px;
+}
+
+.card-ability span {
+    display: block;
+    color: #647387;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 3px;
+}
+
+/* =========================
+   EVENTS
+========================= */
+
+.events {
+    background: #0b1017;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.event-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.event {
+    display: grid;
+    grid-template-columns: 130px 1fr 80px;
+    gap: 30px;
+
+    padding: 30px 0;
+
+    border-top: 1px solid rgba(255,255,255,0.07);
+
+    transition: 0.25s;
+}
+
+.event:last-child {
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.event:hover {
+    padding-left: 10px;
+}
+
+.event-date {
+    color: #6ea8ff;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.event h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.event p {
+    color: #727e8c;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.event-type {
+    color: #596678;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-align: right;
+}
+
+/* =========================
+   MISSION
+========================= */
+
+.mission {
+    min-height: 600px;
+}
+
+.mission-box {
+    position: relative;
+    padding: 60px;
+
+    border: 1px solid rgba(110,168,255,0.16);
+
+    background:
+        radial-gradient(circle at 90% 20%, rgba(50,100,180,0.15), transparent 30%),
+        #0c131c;
+}
+
+.mission-code {
+    color: #52657e;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.mission-box h2 {
+    font-size: 44px;
+    margin: 15px 0;
+}
+
+.mission-box p {
+    max-width: 700px;
+    color: #8793a1;
+    font-size: 14px;
+}
+
+.mission-data {
+    display: flex;
+    gap: 50px;
+    margin-top: 45px;
+}
+
+.data-item small {
+    display: block;
+    color: #566476;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.data-item strong {
+    display: block;
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 50px 40px;
+
+    border-top: 1px solid rgba(255,255,255,0.06);
+
+    color: #515c69;
+    font-size: 11px;
+}
+
+.footer-inner {
+    max-width: 1400px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .nav {
+        padding: 0 20px;
+    }
+
+    .menu {
+        gap: 12px;
+    }
+
+    .menu a {
+        font-size: 10px;
+    }
+
+    .hero-inner {
+        grid-template-columns: 1fr;
+        padding: 120px 25px 60px;
+    }
+
+    .hero-character {
+        height: 480px;
+    }
+
+    .section {
+        padding: 90px 25px;
+    }
+
+    .world-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .character-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header {
+        display: block;
+    }
+
+    .section-description {
+        margin-top: 15px;
+    }
+
+    .event {
+        grid-template-columns: 80px 1fr;
+    }
+
+    .event-type {
+        display: none;
+    }
+
+    .mission-box {
+        padding: 35px 25px;
+    }
+
+    .mission-data {
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+
+    .footer-inner {
+        display: block;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+    <nav class="nav">
+
+        <a href="#home" class="logo">
+            SPECIAL<span>OPS</span>
+        </a>
+
+        <div class="menu">
+            <a href="#home">HOME</a>
+            <a href="#world">WORLD</a>
+            <a href="#characters">CHARACTERS</a>
+            <a href="#events">EVENTS</a>
+            <a href="#mission">MISSION</a>
+        </div>
+
+    </nav>
+</header>
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-inner">
+
+        <div class="hero-text">
+
+            <div class="hero-small">
+                SPECIAL OPERATIONS DIVISION
+            </div>
+
+            <h1>
+                <span>PROJECT</span>
+                특수작전부
+            </h1>
+
+            <p class="hero-description">
+                평범한 군과 경찰만으로는 대응할 수 없는 사건을 처리하는
+                특수작전부대. 능력 범죄, 테러, 인질 구출 등
+                고위험 사건을 전담한다.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#mission" class="btn btn-primary">
+                    작전 시작
+                </a>
+
+                <a href="#world" class="btn btn-dark">
+                    세계관 보기
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="hero-character">
+
+            <div class="character-frame">
+
+                <!--
+                    깃허브에 이미지를 올릴 경우
+
+                    assets/teamleader.webp
+
+                    로 파일을 넣으면 됨.
+                -->
+
+                <img
+                    src="assets/teamleader.webp"
+                    alt="강태현"
+                    onerror="this.style.display='none'"
+                >
+
+                <div class="character-placeholder">
+                    T
+                </div>
+
+                <div class="character-info">
+
+                    <small>
+                        TEAM LEADER
+                    </small>
+
+                    <h3>
+                        강태현
+                    </h3>
+
+                    <p>
+                        능력 : 신체 강화
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WORLD
+========================= -->
+
+<section id="world" class="world">
+
+    <div class="section">
+
+        <div class="section-header">
+
+            <div>
+                <div class="section-number">
+                    01 / WORLD
+                </div>
+
+                <h2 class="section-title">
+                    세계관
+                </h2>
+            </div>
+
+            <p class="section-description">
+                능력자가 존재하는 세계.
+                그리고 그들을 상대하기 위해 만들어진 특수작전부.
+            </p>
+
+        </div>
+
+
+        <div class="world-grid">
+
+            <div class="world-text">
+
+                <p>
+                    약 <span class="highlight">20년 전</span>,
+                    일부 인간에게 특수한 능력이 발현되기 시작했다.
+                </p>
+
+                <p>
+                    처음에는 단순한 사회적 현상으로 여겨졌지만,
+                    능력을 이용한 범죄와 테러가 급격하게 증가하면서
+                    기존의 군과 경찰 조직만으로는 사건을 해결하기
+                    어려운 상황이 이어졌다.
+                </p>
+
+                <p>
+                    각국 정부는 능력자 사건을 전문적으로 처리하기 위한
+                    특수부대를 창설했고, 대한민국 역시
+                    <span class="highlight">특수작전부</span>를 설립했다.
+                </p>
+
+                <p>
+                    당신은 그곳에 새롭게 배치된 작전요원이다.
+                    어떤 능력을 가지고 있는지는 당신이 결정한다.
+                </p>
+
+                <p>
+                    단, 능력을 과도하게 사용하면
+                    <span class="highlight">오버로드</span>가 발생한다.
+                    강한 힘에는 반드시 대가가 따른다.
+                </p>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+                    <span class="stat-number">20+</span>
+                    <span class="stat-label">
+                        능력 발현 이후 경과 연수
+                    </span>
+                </div>
+
+                <div class="stat">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">
+                        특수작전팀
+                    </span>
+                </div>
+
+                <div class="stat">
+                    <span class="stat-number">A</span>
+                    <span class="stat-label">
+                        주요 능력자 위험등급
+                    </span>
+                </div>
+
+                <div class="stat">
+                    <span class="stat-number">01</span>
+                    <span class="stat-label">
+                        신규 작전요원
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CHARACTERS
+========================= -->
+
+<section id="characters" class="characters">
+
+    <div class="section">
+
+        <div class="section-header">
+
+            <div>
+                <div class="section-number">
+                    02 / CHARACTERS
+                </div>
+
+                <h2 class="section-title">
+                    인물
+                </h2>
+            </div>
+
+            <p class="section-description">
+                당신이 함께 작전을 수행하게 될 특수작전부의 요원들.
+            </p>
+
+        </div>
+
+
+        <div class="character-grid">
+
+            <!-- 강태현 -->
+
+            <article class="card">
+
+                <div class="card-number">
+                    01
+                </div>
+
+                <div class="card-role">
+                    TEAM LEADER
+                </div>
+
+                <h3>
+                    강태현
+                </h3>
+
+                <div class="card-age">
+                    32세
+                </div>
+
+                <div class="card-ability">
+                    <span>ABILITY</span>
+                    신체 강화
+                </div>
+
+            </article>
+
+
+            <!-- 서지혁 -->
+
+            <article class="card">
+
+                <div class="card-number">
+                    02
+                </div>
+
+                <div class="card-role">
+                    DEPUTY TEAM LEADER
+                </div>
+
+                <h3>
+                    서지혁
+                </h3>
+
+                <div class="card-age">
+                    29세
+                </div>
+
+                <div class="card-ability">
+                    <span>ABILITY</span>
+                    공간 이동
+                </div>
+
+            </article>
+
+
+            <!-- 한도윤 -->
+
+            <article class="card">
+
+                <div class="card-number">
+                    03
+                </div>
+
+                <div class="card-role">
+                    ASSAULT OPERATIVE
+                </div>
+
+                <h3>
+                    한도윤
+                </h3>
+
+                <div class="card-age">
+                    26세
+                </div>
+
+                <div class="card-ability">
+                    <span>ABILITY</span>
+                    전기
+                </div>
+
+            </article>
+
+
+            <!-- 윤서아 -->
+
+            <article class="card">
+
+                <div class="card-number">
+                    04
+                </div>
+
+                <div class="card-role">
+                    SNIPER
+                </div>
+
+                <h3>
+                    윤서아
+                </h3>
+
+                <div class="card-age">
+                    27세
+                </div>
+
+                <div class="card-ability">
+                    <span>ABILITY</span>
+                    감각 강화
+                </div>
+
+            </article>
+
+
+            <!-- 정유진 -->
+
+            <article class="card">
+
+                <div class="card-number">
+                    05
+                </div>
+
+                <div class="card-role">
+                    MEDIC
+                </div>
+
+                <h3>
+                    정유진
+                </h3>
+
+                <div class="card-age">
+                    28세
+                </div>
+
+                <div class="card-ability">
+                    <span>ABILITY</span>
+                    생체 치유
+                </div>
+
+            </article>
+
+
+            <!-- 이현 -->
+
+            <article class="card">
+
+                <div class="card-number">
+                    06
+                </div>
+
+                <div class="card-role">
+                    INTELLIGENCE
+                </div>
+
+                <h3>
+                    이현
+                </h3>
+
+                <div class="card-age">
+                    30세
+                </div>
+
+                <div class="card-ability">
+                    <span>ABILITY</span>
+                    능력 흔적 추적
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EVENTS
+========================= -->
+
+<section id="events" class="events">
+
+    <div class="section">
+
+        <div class="section-header">
+
+            <div>
+                <div class="section-number">
+                    03 / EVENTS
+                </div>
+
+                <h2 class="section-title">
+                    주요 사건
+                </h2>
+            </div>
+
+            <p class="section-description">
+                특수작전부의 작전 기록과 당신이 마주하게 될 사건들.
+            </p>
+
+        </div>
+
+
+        <div class="event-list">
+
+            <a href="#mission" class="event">
+
+                <div class="event-date">
+                    EVENT 01
+                </div>
+
+                <div>
+                    <h3>
+                        신규 요원 배치
+                    </h3>
+
+                    <p>
+                        당신이 특수작전부에 처음 배치된다.
+                        새로운 팀원들과의 첫 만남.
+                    </p>
+                </div>
+
+                <div class="event-type">
+                    BEGIN
+                </div>
+
+            </a>
+
+
+            <a href="#mission" class="event">
+
+                <div class="event-date">
+                    EVENT 02
+                </div>
+
+                <div>
+                    <h3>
+                        능력자 테러 사건
+                    </h3>
+
+                    <p>
+                        도심에서 능력자를 이용한 테러가 발생한다.
+                        특수작전부가 현장에 투입된다.
+                    </p>
+                </div>
+
+                <div class="event-type">
+                    MISSION
+                </div>
+
+            </a>
+
+
+            <a href="#mission" class="event">
+
+                <div class="event-date">
+                    EVENT 03
+                </div>
+
+                <div>
+                    <h3>
+                        흔적 없는 능력자
+                    </h3>
+
+                    <p>
+                        이현이 지금까지 발견된 적 없는
+                        이상한 능력 흔적을 발견한다.
+                    </p>
+                </div>
+
+                <div class="event-type">
+                    CASE
+                </div>
+
+            </a>
+
+
+            <a href="#mission" class="event">
+
+                <div class="event-date">
+                    EVENT 04
+                </div>
+
+                <div>
+                    <h3>
+                        BLACK
+                    </h3>
+
+                    <p>
+                        능력자 범죄 조직의 정체가
+                        조금씩 드러나기 시작한다.
+                    </p>
+                </div>
+
+                <div class="event-type">
+                    CLASSIFIED
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MISSION
+========================= -->
+
+<section id="mission" class="mission">
+
+    <div class="section">
+
+        <div class="section-header">
+
+            <div>
+                <div class="section-number">
+                    04 / MISSION
+                </div>
+
+                <h2 class="section-title">
+                    작전 개시
+                </h2>
+            </div>
+
+            <p class="section-description">
+                이제 당신의 이야기가 시작된다.
+            </p>
+
+        </div>
+
+
+        <div class="mission-box">
+
+            <div class="mission-code">
+                OPERATION / SPECIAL-001
+            </div>
+
+            <h2>
+                특수작전부에<br>
+                합류하시겠습니까?
+            </h2>
+
+            <p>
+                당신은 오늘부터 특수작전부의 작전요원이다.
+                당신의 능력, 선택, 행동에 따라
+                사건의 결과와 사람들의 관계가 달라진다.
+            </p>
+
+
+            <div class="mission-data">
+
+                <div class="data-item">
+                    <small>LOCATION</small>
+                    <strong>대한민국 / 기밀</strong>
+                </div>
+
+                <div class="data-item">
+                    <small>THREAT</small>
+                    <strong>ABILITY USER</strong>
+                </div>
+
+                <div class="data-item">
+                    <small>STATUS</small>
+                    <strong>STANDBY</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div>
+            SPECIAL OPERATIONS DIVISION
+        </div>
+
+        <div>
+            © 2026 SPECIAL OPS
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
